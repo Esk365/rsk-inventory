@@ -31,7 +31,12 @@ Route::middleware(['auth_middleware'])->group(function (){
     Route::middleware(['user_middleware'])->group(function (){
         Route::prefix('products')->group(function () {
             Route::get('/',[ProductController::class , 'products_view']);
-           
+            Route::get('/add',[ProductController::class , 'products_add_view']);
+            Route::get('/edit/{id}',[ProductController::class , 'products_edit_view']);
+
+            Route::post('/add',[ProductController::class , 'products_add']);
+            Route::get('/delete/{id}',[ProductController::class , 'products_delete']);
+            Route::post('/edit/{id}',[ProductController::class , 'products_edit']);
         });
 
     });
