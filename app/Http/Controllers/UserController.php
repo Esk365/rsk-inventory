@@ -25,11 +25,7 @@ class UserController extends Controller
             'password'  => $req->password
         );
         if (Auth::attempt($userdata)) {
-            if(Auth::User()->role == 'user'){
-                return redirect("/user");
-            }else{
-                return redirect("/admin");
-            }
+            return redirect('/dashboard');
         } else {        
             return redirect()->back();
         }

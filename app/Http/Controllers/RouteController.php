@@ -18,13 +18,12 @@ class RouteController extends Controller
             return view("auth.signup");
         }
     
-
-    public function user_view(Request $req){
-            return view("user.home");
-        }
-
-        public function admin_view(Request $req){
-            return view("admin.home");
-        }
+    public function dashboard_view(Request $req){
+        return view("dashboard.home");
+    }
+    
+    public function no_permission_view(Request $req){
+        return view("dashboard.nopermission");
+    }
     
 }
