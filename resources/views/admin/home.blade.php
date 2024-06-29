@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-</head>
-<body>
-    <h1>This is admin</h1>
-</body>
-</html>
+@extends('layout')
+
+@section('content')
+<h1>This is Dash</h1>
+{{Auth::User()->email}}
+<div class="">
+    {{Auth::User()->name}}
+</div>  
+@endsection
