@@ -13,19 +13,33 @@
                 <i class="fas fa-tags"></i> Products
             </a>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" href="/customers">
+                <i class="fas fa-users"></i> Customers
+            </a>
+        </li>
         @endif
+
+        @if(Auth::user()->role == "admin")
+        <li class="nav-item">
+            <a class="nav-link" href="/categories">
+                <i class="fas fa-box"></i> Category
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/suppliers">
+                <i class="fas fa-users"></i> Supplier
+            </a>
+        </li>
+        @endif
+
         <li class="nav-item">
             <a class="nav-link" href="#orders">
                 <i class="fas fa-box"></i> Orders
             </a>
         </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#customers">
-                <i class="fas fa-users"></i> Customers
-            </a>
-        </li>
+        
         <li class="nav-item">
             <a class="nav-link" href="#purchases">
                 <i class="fas fa-shopping-cart"></i> All Purchases

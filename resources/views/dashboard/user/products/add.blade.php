@@ -13,7 +13,7 @@
             <label for="">Category</label>
             <select name="category" id="category" class="form-control">
                 <option value="1">Food</option>
-                <option value="2">Colths</option>
+                <option value="2">Cloths</option>
                 <option value="3">Furniture</option>
                 <option value="4">Drinks</option>
             </select>

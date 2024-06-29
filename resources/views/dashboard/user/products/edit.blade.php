@@ -12,7 +12,7 @@
         <div class="form-group">
             <label for="">Category</label>
             <select name="category" id="category" class="form-control">
-                <option value="1" @if($product->id == 1) selected @endif>Foods</option>
+                <option value="1" @if($product->id == 1) selected @endif>Food</option>
                 <option value="2" @if($product->id == 2) selected @endif>Cloths</option>
                 <option value="3" @if($product->id == 3) selected @endif>Furniture</option>
                 <option value="4" @if($product->id == 4) selected @endif>Drinks</option>

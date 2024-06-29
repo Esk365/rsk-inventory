@@ -8,7 +8,8 @@ use App\Models\product;
 class ProductController extends Controller
 {
     public function products_view(Request $req){
-        $products = product::orderBy('id','desc')->get();
+        $products = product::join('categories','categories.id','=','products.category_id')
+        ->orderBy('products.id','desc')->get(['categories.name as cname','products.*']);
         return view('dashboard.user.products.home')->with('products',$products);;
     }
 

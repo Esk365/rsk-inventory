@@ -24,7 +24,7 @@
                         <td>{{$pro->name}}</td>
                         <td>{{$pro->price}}</td>
                         <td>{{$pro->qty}}</td>
-                        <td>{{$pro->category_id}}</td>
+                        <td>{{$pro->cname}}</td>
                         <td>
                             <a href="/products/delete/{{$pro->id}}" class="btn btn-danger">Delete</a>
                             <a href="/products/edit/{{$pro->id}}" class="btn btn-primary">Edit</a>
