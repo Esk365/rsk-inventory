@@ -34,23 +34,23 @@
         @endif
 
         <li class="nav-item">
-            <a class="nav-link" href="#orders">
+            <a class="nav-link" href="/orders">
                 <i class="fas fa-box"></i> Orders
             </a>
         </li>
 
-        
+        <li class="nav-item">
+            <a class="nav-link" href="/stockalerts">
+                <i class="fas fa-exclamation-triangle"></i> Stock Alerts
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link" href="#purchases">
                 <i class="fas fa-shopping-cart"></i> All Purchases
             </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#stock-alerts">
-                <i class="fas fa-exclamation-triangle"></i> Stock Alerts
-            </a>
-        </li>
-       
+       <br>
         <li class="nav-item mb-2">
             <a class="btn btn-danger w-100" href="/signout">Log Out</a>
         </li>

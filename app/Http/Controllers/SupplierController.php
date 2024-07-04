@@ -17,7 +17,7 @@ class SupplierController extends Controller
     }
 
     public function suppliers_add(Request $req){
-        if(Supplier::where('name',$req->name)->exists()){
+        if(Supplier::where('name',$req->name)->orwhere('mobile',$req->mobile)->exists()){
 
         }else{
         $supplier = new Supplier;

@@ -7,24 +7,31 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="name" id="name" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="">Category</label>
             <select name="category" id="category" class="form-control">
-                <option value="1">Food</option>
-                <option value="2">Cloths</option>
-                <option value="3">Furniture</option>
-                <option value="4">Drinks</option>
+                @foreach ($categories as $cat)
+                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Supplier</label>
+            <select name="supplier" id="supplier" class="form-control">
+                @foreach ($suppliers as $sup)
+                <option value="{{$sup->id}}">{{$sup->name}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="">Quantity</label>
-            <input type="number" name="qty" id="qty" class="form-control">
+            <input type="number" name="qty" id="qty" class="form-control" required>
         </div>
         <div class="form-group">
             <label for="">Unit Price</label>
-            <input type="number" name="price" id="price" class="form-control">
+            <input type="number" name="price" id="price" class="form-control" required>
         </div>
         <br>
         <div class="form-group">

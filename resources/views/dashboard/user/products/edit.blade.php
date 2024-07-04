@@ -7,24 +7,31 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="name" id="name" class="form-control" value="{{$product->name}}">
+            <input type="text" name="name" id="name" class="form-control" value="{{$product->name}}" required>
         </div>
         <div class="form-group">
             <label for="">Category</label>
             <select name="category" id="category" class="form-control">
-                <option value="1" @if($product->id == 1) selected @endif>Food</option>
-                <option value="2" @if($product->id == 2) selected @endif>Cloths</option>
-                <option value="3" @if($product->id == 3) selected @endif>Furniture</option>
-                <option value="4" @if($product->id == 4) selected @endif>Drinks</option>
+                @foreach ($categories as $cat)
+                <option value="{{$cat->id}}"  @if($product->category_id == $cat->id) selected @endif >{{$cat->name}}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="">Supplier</label>
+            <select name="supplier" id="supplier" class="form-control">
+                @foreach ($suppliers as $sup)
+                <option value="{{$sup->id}}"  @if($product->supplier_id == $sup->id) selected @endif >{{$sup->name}}</option>
+                @endforeach
             </select>
         </div>
         <div class="form-group">
             <label for="">Quantity</label>
-            <input type="number" name="qty" id="qty" class="form-control" value="{{$product->qty}}">
+            <input type="number" name="qty" id="qty" class="form-control" value="{{$product->qty}}" required>
         </div>
         <div class="form-group">
             <label for="">Unit Price</label>
-            <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}">
+            <input type="number" name="price" id="price" class="form-control" value="{{$product->price}}" required>
         </div>
         <br>
         <div class="form-group">

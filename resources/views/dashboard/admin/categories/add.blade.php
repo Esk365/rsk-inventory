@@ -7,7 +7,7 @@
         {{csrf_field()}}
         <div class="form-group">
             <label for="">Name</label>
-            <input type="text" name="name" id="name" class="form-control">
+            <input type="text" name="name" id="name" class="form-control" required>
         </div>
         <br>
         <div class="form-group">

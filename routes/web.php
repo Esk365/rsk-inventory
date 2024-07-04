@@ -8,6 +8,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AlertController;
+
+
 
 Route::get('/signout', function(){
     Auth::logout();
@@ -23,7 +27,7 @@ Route::post('/signin',[UserController::class,'signin']);
 Route::post('/signup',[UserController::class,'signup']);
 Route::get('/nopermission',[RouteController::class , 'no_permission_view']);
 
-Route::middleware(['auth_middleware'])->group(function (){
+ Route::middleware(['auth_middleware'])->group(function (){
     Route::get('/dashboard',[RouteController::class , 'dashboard_view'])->name("dashboard");
 
     Route::middleware(['permission_middleware'])->group(function (){
@@ -47,10 +51,12 @@ Route::middleware(['auth_middleware'])->group(function (){
             Route::post('/edit/{id}',[SupplierController::class , 'suppliers_edit']);
         });
 
-
+        Route::get('/orders/approve/{id}',[OrderController::class , 'orders_approve']);  
     });
 
-    Route::middleware(['user_middleware'])->group(function (){
+
+
+ Route::middleware(['user_middleware'])->group(function (){
         Route::prefix('products')->group(function () {
             Route::get('/',[ProductController::class , 'products_view']);
             Route::get('/add',[ProductController::class , 'products_add_view']);
@@ -71,7 +77,20 @@ Route::middleware(['auth_middleware'])->group(function (){
             Route::post('/edit/{id}',[CustomerController::class , 'customers_edit']);
         });
 
+         
     });
+
+        Route::prefix('orders')->group(function (){
+            Route::get('/',[OrderController::class , 'orders_view']);
+            Route::get('/add',[OrderController::class , 'orders_add_view']);     
+            Route::post('/add',[OrderController::class , 'orders_add']);
+
+            
+    });  
+
+
+    Route::get('/stockalerts',[AlertController::class , 'stockalerts_view']);  
+
 
 });
 
