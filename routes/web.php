@@ -10,7 +10,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AlertController;
-
+use App\Http\Controllers\PdfController;
 
 
 Route::get('/signout', function(){
@@ -52,6 +52,7 @@ Route::get('/nopermission',[RouteController::class , 'no_permission_view']);
         });
 
         Route::get('/orders/approve/{id}',[OrderController::class , 'orders_approve']);  
+        Route::get('/generateInventoryPDF',[PDFController::class , 'generateInventoryPDF']);
     });
 
 
@@ -91,6 +92,7 @@ Route::get('/nopermission',[RouteController::class , 'no_permission_view']);
 
     Route::get('/stockalerts',[AlertController::class , 'stockalerts_view']);  
 
+    Route::get('/generatePdf',[PdfController::class , 'generatePdf']); 
 
 });
 

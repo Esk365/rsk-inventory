@@ -1,58 +1,60 @@
-<div class="sidebar p-3">
-    <div>
-        <h3>RskInventory</h3>
-        <span>{{ Auth::user()->email }}</span>
-        <br>
-        <span>{{ Auth::user()->role }}</span>
-    </div>
-    <ul class="nav flex-column mt-4">
 
-        @if(Auth::user()->role == "user")
-        <li class="nav-item">
-            <a class="nav-link" href="/products">
-                <i class="fas fa-tags"></i> Products
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/customers">
-                <i class="fas fa-users"></i> Customers
-            </a>
-        </li>
-        @endif
+<ul class="menu-inner py-1">
+            @auth
+                @if (Auth::user()->role == 'user')
+                    <li class="menu-item mt-1">
+                        <a class="menu-link" href="/products">
+                            <i class="fas fa-tags menu-icon"></i>
+                            <div>Products</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/customers">
+                            <i class="fas fa-users menu-icon"></i>
+                            <div>Customers</div>
+                        </a>
+                    </li>
+                @endif
 
-        @if(Auth::user()->role == "admin")
-        <li class="nav-item">
-            <a class="nav-link" href="/categories">
-                <i class="fas fa-box"></i> Category
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="/suppliers">
-                <i class="fas fa-users"></i> Supplier
-            </a>
-        </li>
-        @endif
+                @if (Auth::user()->role == 'admin')
+                    <li class="menu-item">
+                        <a class="menu-link" href="/categories">
+                            <i class="fas fa-box menu-icon"></i>
+                            <div>Category</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a class="menu-link" href="/suppliers">
+                            <i class="fas fa-users menu-icon"></i>
+                            <div>Supplier</div>
+                        </a>
+                    </li>
+                @endif
 
-        <li class="nav-item">
-            <a class="nav-link" href="/orders">
-                <i class="fas fa-box"></i> Orders
-            </a>
-        </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/orders">
+                        <i class="fas fa-box menu-icon"></i>
+                        <div>Orders</div>
+                    </a>
+                </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/stockalerts">
-                <i class="fas fa-exclamation-triangle"></i> Stock Alerts
-            </a>
-        </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="#purchases">
+                        <i class="fas fa-shopping-cart menu-icon"></i>
+                        <div>All Purchases</div>
+                    </a>
+                </li>
+                <li class="menu-item">
+                    <a class="menu-link" href="/stockalerts">
+                        <i class="fas fa-exclamation-triangle menu-icon"></i>
+                        <div>Stock Alerts</div>
+                    </a>
+                </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="#purchases">
-                <i class="fas fa-shopping-cart"></i> All Purchases
-            </a>
-        </li>
-       <br>
-        <li class="nav-item mb-2">
-            <a class="btn btn-danger w-100" href="/signout">Log Out</a>
-        </li>
-    </ul>
-</div>
+                <li class="menu-item mb-2">
+                    <a class="btn btn-danger w-100" href="/signout">Log Out</a>
+                </li>
+            @endauth
+</ul>
+
+

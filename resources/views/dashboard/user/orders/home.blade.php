@@ -4,6 +4,8 @@
 <h1>Orders</h1>
 <br>
 <a href="/orders/add" class="btn btn-success">Add New Order</a>
+<br>
+<a href="/generatePdf" class="btn btn-primary float-end">Download Order Report</a>
 <br><br>
 <table class="table">
     <thead>
@@ -29,9 +31,11 @@
                     <td>{{$order->qty}}</td>
                     <td>{{$order->qty * $order->price}}</td>
                     <td>{{$order->status}}</td>
+                    <td>
                     @if(Auth::User()->role == "admin" && $order->status == "pending")
-                        <td><a href="/orders/approve/{{$order->id}}" class="btn btn-success">Approve</a></td>
+                        <a href="/orders/approve/{{$order->id}}" class="btn btn-success">Approve</a>
                     @endif
+                    </td>
                 </tr>
             @endforeach
         @endif
