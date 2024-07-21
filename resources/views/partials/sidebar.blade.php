@@ -37,13 +37,6 @@
                         <div>Orders</div>
                     </a>
                 </li>
-
-                <li class="menu-item">
-                    <a class="menu-link" href="#purchases">
-                        <i class="fas fa-shopping-cart menu-icon"></i>
-                        <div>All Purchases</div>
-                    </a>
-                </li>
                 <li class="menu-item">
                     <a class="menu-link" href="/stockalerts">
                         <i class="fas fa-exclamation-triangle menu-icon"></i>
